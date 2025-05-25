@@ -1,0 +1,11 @@
+@notification_HostAddress = http://localhost:5191
+
+POST {{notification_HostAddress}}/api/notification/email
+Content-Type: application/json
+
+{
+  "to": "user@example.com",
+  "subject": "Test",
+  "body": "Hello!"
+}
+
