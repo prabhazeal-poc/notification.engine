@@ -48,7 +48,18 @@ The Smart Notification Delivery Platform acts as a central notification engine, 
 
 1. **Build the project:**dotnet build
 2. **Run the project:**dotnet run
-3. The API will be available at `http://localhost:5191` (refer the port specified in launch settings).
+3. The API will be available at `http://localhost:5191` (refer to the port specified in launch settings).
+
+## Authentication
+
+This API uses **JWT Bearer authentication**. All endpoints require a valid JWT token in the `Authorization` header.
+
+- Add your JWT settings in `appsettings.json`:
+
+## Swagger UI with Authentication
+
+- Swagger UI is available at `/swagger`.
+- Click the **Authorize** button in Swagger UI and enter your JWT token as `Bearer <token>` to authenticate your requests.
 
 ## Running Unit Tests
 
