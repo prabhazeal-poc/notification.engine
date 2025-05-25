@@ -23,7 +23,7 @@ namespace Notification.Application.Validators
                 .NotNull().WithMessage("Recipients are required.")
                 .Must(r => r.Count > 0).WithMessage("At least one recipient is required.");
 
-           
+
             RuleFor(x => x.Channel)
                 .NotEmpty().WithMessage("Channel is required.")
                 .Must(channel =>

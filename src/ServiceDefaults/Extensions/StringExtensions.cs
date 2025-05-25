@@ -1,6 +1,6 @@
 using System.Text.Json;
 
-namespace Notification.ServiceDefaults.Extensions
+namespace notification.engine.ServiceDefaults.Extensions
 {
     /// <summary>
     /// Provides extension methods for string serialization.

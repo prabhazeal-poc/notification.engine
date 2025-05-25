@@ -1,8 +1,8 @@
 using Azure.Messaging.ServiceBus;
 using Microsoft.Extensions.Options;
+using notification.engine.ServiceDefaults.Extensions;
 using Notification.Application.Contracts;
 using Notification.Application.Models;
-using Notification.ServiceDefaults.Extensions;
 
 namespace Notification.Infrastructure.Services
 {

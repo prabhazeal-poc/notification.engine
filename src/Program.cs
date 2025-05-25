@@ -6,6 +6,7 @@ using Notification.Application.Models;
 using Notification.Application.Validators;
 using Notification.Infrastructure.Logging;
 using Notification.Infrastructure.Services;
+using Notification.ServiceDefaults.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,9 +37,21 @@ builder.Services.AddScoped(typeof(IAppLogger<>), typeof(AppLogger<>));
 
 builder.Services.AddScoped<IAuditLogger, AuditLogger>();
 
+// Add JWT authentication and Swagger using the extension method
+builder.Services.AddJwtAuthenticationAndSwagger(builder.Configuration);
+
+// Add global authorization filter
+builder.Services.AddControllers(options =>
+{
+    options.Filters.Add(new Microsoft.AspNetCore.Mvc.Authorization.AuthorizeFilter());
+});
+
 var app = builder.Build();
 
-// Configure the HTTP request pipeline.
+// Enable authentication and authorization middleware
+app.UseAuthentication();
+app.UseAuthorization();
+
 //if (app.Environment.IsDevelopment()) //for testing
 {
     app.UseSwagger();
